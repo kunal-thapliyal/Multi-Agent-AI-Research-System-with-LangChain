@@ -1,0 +1,41 @@
+# Core LangChain ecosystem
+langchain>=0.2.0
+langchain-core>=0.2.0
+langgraph>=0.2.0
+
+# Groq LLM
+langchain-groq>=0.1.0
+groq>=0.9.0
+
+# Tavily Search
+langchain-tavily>=0.1.0
+tavily-python>=0.3.0
+
+# Web scraping
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+lxml>=5.0.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# Data validation / structured outputs
+pydantic>=2.5.0
+
+# Async HTTP support
+aiohttp>=3.9.0
+
+# Reliability / retries
+tenacity>=8.2.0
+
+# Terminal logging / debugging
+rich>=13.7.0
+
+# Optional data processing
+pandas>=2.0.0
+
+# Optional HTML parsing
+html5lib>=1.1
+
+# LangSmith tracing
+langsmith>=0.1.0

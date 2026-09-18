@@ -1,0 +1,1083 @@
+/* ==========================================
+   GLOBAL
+========================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #ffffff;
+  color: #1f1f1f;
+
+  overflow: hidden;
+}
+
+button,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+/* ==========================================
+   APP
+========================================== */
+
+.app {
+  display: flex;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background: var(--bg);
+  color: var(--text);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* ==========================================
+   LIGHT MODE
+========================================== */
+
+.app.light {
+  --bg: #ffffff;
+  --sidebar-bg: #f7f7f8;
+  --header-bg: #ffffff;
+
+  --text: #171717;
+  --muted: #777777;
+
+  --border: #e5e5e5;
+  --border-light: #eeeeee;
+
+  --hover: #eeeeee;
+  --active: #e5e5e5;
+
+  --input-bg: #ffffff;
+  --user-bg: #f1f1f1;
+
+  --card-bg: #ffffff;
+  --card-header: #f7f7f8;
+
+  --button-bg: #111827;
+  --button-text: #ffffff;
+
+  --status-text: #555555;
+}
+
+
+/* ==========================================
+   DARK MODE
+========================================== */
+
+.app.dark {
+  --bg: #212121;
+  --sidebar-bg: #171717;
+  --header-bg: #212121;
+
+  --text: #f5f5f5;
+  --muted: #a0a0a0;
+
+  --border: #383838;
+  --border-light: #303030;
+
+  --hover: #2f2f2f;
+  --active: #3a3a3a;
+
+  --input-bg: #2f2f2f;
+  --user-bg: #303030;
+
+  --card-bg: #212121;
+  --card-header: #2a2a2a;
+
+  --button-bg: #f5f5f5;
+  --button-text: #171717;
+
+  --status-text: #b5b5b5;
+}
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  height: 100vh;
+
+  flex-shrink: 0;
+
+  background: var(--sidebar-bg);
+  color: var(--text);
+
+  border-right: 1px solid var(--border);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 14px;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* ==========================================
+   SIDEBAR TOP
+========================================== */
+
+.sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+
+/* ==========================================
+   BRAND
+========================================== */
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.brand-icon,
+.welcome-icon,
+.assistant-avatar,
+.small-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #111827;
+  color: white;
+
+  border-radius: 8px;
+
+  font-weight: 700;
+}
+
+.brand-icon {
+  width: 30px;
+  height: 30px;
+
+  font-size: 14px;
+}
+
+
+/* ==========================================
+   NEW CHAT
+========================================== */
+
+.new-chat {
+  width: 100%;
+
+  border: 1px solid var(--border);
+
+  background: var(--input-bg);
+  color: var(--text);
+
+  border-radius: 8px;
+
+  padding: 10px 12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 14px;
+
+  margin-bottom: 24px;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.new-chat:hover {
+  background: var(--hover);
+}
+
+
+/* ==========================================
+   HISTORY
+========================================== */
+
+.history {
+  min-width: 0;
+}
+
+.history-title {
+  color: var(--muted);
+
+  font-size: 12px;
+
+  margin: 0 0 10px 4px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.history-item {
+  width: 100%;
+
+  border: none;
+
+  background: transparent;
+  color: var(--text);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 9px;
+
+  border-radius: 7px;
+
+  font-size: 13px;
+
+  overflow: hidden;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.history-item:hover {
+  background: var(--hover);
+}
+
+.history-item.active {
+  background: var(--active);
+}
+
+.history-item span {
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.empty-history {
+  color: var(--muted);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  padding: 5px;
+}
+
+
+/* ==========================================
+   SIDEBAR BOTTOM
+========================================== */
+
+.sidebar-bottom {
+  margin-top: auto;
+
+  border-top: 1px solid var(--border);
+
+  padding-top: 14px;
+}
+
+.product-info {
+  display: flex;
+
+  gap: 10px;
+
+  align-items: center;
+}
+
+.small-logo {
+  width: 30px;
+  height: 30px;
+
+  font-size: 13px;
+}
+
+.product-info div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info strong {
+  font-size: 13px;
+}
+
+.product-info span {
+  color: var(--muted);
+
+  font-size: 11px;
+}
+
+
+/* ==========================================
+   MAIN
+========================================== */
+
+.main {
+  flex: 1;
+
+  min-width: 0;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--bg);
+  color: var(--text);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header {
+  height: 58px;
+  min-height: 58px;
+
+  border-bottom: 1px solid var(--border-light);
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 20px;
+
+  gap: 14px;
+
+  background: var(--header-bg);
+}
+
+.header-title {
+  font-weight: 600;
+
+  color: var(--text);
+}
+
+
+/* ==========================================
+   ICON BUTTON
+========================================== */
+
+.icon-button {
+  border: none;
+
+  background: transparent;
+
+  color: var(--text);
+
+  padding: 7px;
+
+  border-radius: 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.icon-button:hover {
+  background: var(--hover);
+}
+
+.mobile-close {
+  display: none;
+}
+
+
+/* ==========================================
+   THEME TOGGLE
+========================================== */
+
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+
+  margin-left: auto;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  background: transparent;
+  color: var(--text);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--hover);
+}
+
+
+/* ==========================================
+   CONVERSATION
+========================================== */
+
+.conversation {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  background: var(--bg);
+  color: var(--text);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* ==========================================
+   WELCOME
+========================================== */
+
+.welcome {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  padding: 90px 24px 40px;
+
+  text-align: center;
+
+  color: var(--text);
+}
+
+.welcome-icon {
+  width: 52px;
+  height: 52px;
+
+  margin: 0 auto 22px;
+
+  border-radius: 14px;
+
+  font-size: 22px;
+}
+
+.welcome h1 {
+  font-size: 30px;
+
+  margin: 0 0 12px;
+
+  letter-spacing: -0.7px;
+
+  color: var(--text);
+}
+
+.welcome p {
+  color: var(--muted);
+
+  line-height: 1.6;
+
+  max-width: 600px;
+
+  margin: 0 auto;
+}
+
+
+/* ==========================================
+   SUGGESTIONS
+========================================== */
+
+.suggestions {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+
+  margin-top: 35px;
+}
+
+.suggestions button {
+  border: 1px solid var(--border);
+
+  background: var(--card-bg);
+  color: var(--text);
+
+  border-radius: 10px;
+
+  padding: 15px;
+
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.suggestions button:hover {
+  background: var(--hover);
+}
+
+
+/* ==========================================
+   MESSAGES
+========================================== */
+
+.messages {
+  max-width: 820px;
+
+  margin: 0 auto;
+
+  padding: 35px 24px 130px;
+}
+
+.message-row {
+  display: flex;
+
+  margin-bottom: 30px;
+}
+
+.message-row.user {
+  justify-content: flex-end;
+}
+
+
+/* ==========================================
+   USER MESSAGE
+========================================== */
+
+.user-message {
+  background: var(--user-bg);
+
+  color: var(--text);
+
+  padding: 12px 16px;
+
+  border-radius: 18px;
+
+  max-width: 75%;
+
+  line-height: 1.5;
+}
+
+
+/* ==========================================
+   ASSISTANT MESSAGE
+========================================== */
+
+.assistant-message {
+  width: 100%;
+
+  color: var(--text);
+}
+
+.assistant-heading {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 15px;
+}
+
+.assistant-avatar {
+  width: 29px;
+  height: 29px;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+}
+
+.chat-response {
+  color: var(--text);
+
+  line-height: 1.6;
+
+  font-size: 15px;
+}
+
+
+/* ==========================================
+   RESEARCH REPORT
+========================================== */
+
+.report {
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  background: var(--card-bg);
+}
+
+.report-label {
+  background: var(--card-header);
+
+  color: var(--text);
+
+  padding: 11px 15px;
+
+  font-weight: 600;
+
+  font-size: 13px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.report-content {
+  padding: 18px;
+
+  color: var(--text);
+
+  white-space: pre-wrap;
+
+  line-height: 1.65;
+
+  font-size: 14px;
+}
+
+
+/* ==========================================
+   FEEDBACK
+========================================== */
+
+.feedback {
+  margin-top: 15px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  padding: 16px;
+
+  background: var(--card-bg);
+
+  color: var(--text);
+}
+
+.feedback-heading {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 10px;
+}
+
+.feedback pre {
+  white-space: pre-wrap;
+
+  font-family: inherit;
+
+  line-height: 1.6;
+
+  font-size: 13px;
+
+  margin: 0;
+
+  color: var(--text);
+}
+
+
+/* ==========================================
+   REPORT ACTIONS
+========================================== */
+
+.report-actions {
+  display: flex;
+
+  gap: 8px;
+
+  margin-top: 12px;
+}
+
+.report-actions button {
+  border: 1px solid var(--border);
+
+  background: var(--card-bg);
+
+  color: var(--text);
+
+  padding: 8px 12px;
+
+  border-radius: 7px;
+
+  font-size: 12px;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.report-actions button:hover {
+  background: var(--hover);
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.error-box {
+  border: 1px solid #f0caca;
+
+  background: #fff5f5;
+
+  color: #7f1d1d;
+
+  padding: 15px;
+
+  border-radius: 10px;
+}
+
+.error-box p {
+  margin-bottom: 0;
+}
+
+
+/* Dark mode error */
+
+.app.dark .error-box {
+  background: #351d1d;
+
+  border-color: #613333;
+
+  color: #fca5a5;
+}
+
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.research-status {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+.status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--status-text);
+
+  font-size: 14px;
+}
+
+.loader {
+  width: 13px;
+  height: 13px;
+
+  border: 2px solid var(--border);
+
+  border-top-color: var(--text);
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+
+  margin-left: 3px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ==========================================
+   INPUT AREA
+========================================== */
+
+.input-area {
+  position: absolute;
+
+  bottom: 0;
+
+  left: 260px;
+
+  right: 0;
+
+  padding: 15px 24px 20px;
+
+  background: linear-gradient(
+    transparent,
+    var(--bg) 25%
+  );
+
+  transition:
+    background 0.2s ease;
+}
+
+
+/* ==========================================
+   INPUT CONTAINER
+========================================== */
+
+.input-container {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  border: 1px solid var(--border);
+
+  border-radius: 15px;
+
+  background: var(--input-bg);
+
+  display: flex;
+
+  align-items: flex-end;
+
+  padding: 9px 10px 9px 15px;
+
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.04);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+/* ==========================================
+   TEXTAREA
+========================================== */
+
+textarea {
+  flex: 1;
+
+  border: none;
+
+  outline: none;
+
+  resize: none;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  max-height: 140px;
+
+  padding: 6px 0;
+
+  background: transparent;
+
+  color: var(--text);
+}
+
+textarea::placeholder {
+  color: var(--text);
+
+  opacity: 0.65;
+}
+
+
+/* ==========================================
+   SEND BUTTON
+========================================== */
+
+.send-button {
+  width: 34px;
+  height: 34px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: var(--button-bg);
+
+  color: var(--button-text);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.send-button:disabled {
+  opacity: 0.35;
+
+  cursor: default;
+}
+
+
+/* ==========================================
+   DISCLAIMER
+========================================== */
+
+.disclaimer {
+  max-width: 760px;
+
+  margin: 8px auto 0;
+
+  text-align: center;
+
+  font-size: 10px;
+
+  color: var(--muted);
+}
+
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+.conversation::-webkit-scrollbar {
+  width: 8px;
+}
+
+.conversation::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.conversation::-webkit-scrollbar-thumb {
+  background: #c8c8c8;
+
+  border-radius: 10px;
+}
+
+.app.dark .conversation::-webkit-scrollbar-thumb {
+  background: #555555;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+  .sidebar {
+    position: fixed;
+
+    z-index: 10;
+
+    height: 100vh;
+
+    left: 0;
+
+    top: 0;
+  }
+
+  .mobile-close {
+    display: flex;
+  }
+
+  .input-area {
+    left: 0;
+
+    padding-left: 15px;
+
+    padding-right: 15px;
+  }
+
+  .suggestions {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome {
+    padding-top: 55px;
+  }
+
+  .welcome h1 {
+    font-size: 24px;
+  }
+
+  .messages {
+    padding-left: 15px;
+
+    padding-right: 15px;
+  }
+
+  .user-message {
+    max-width: 90%;
+  }
+
+  .header {
+    padding: 0 15px;
+  }
+
+  .input-container {
+    max-width: 100%;
+  }
+}
